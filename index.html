@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DOMIUS – Twój dom. Zaprojektowany.</title>
+
+<style>
+body { font-family: system-ui, sans-serif; margin:0; background:#f5f7fb; color:#111; }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:#fff; }
+.logo { font-weight:700; letter-spacing:0.08em; }
+.lang-switch span { margin-left:10px; cursor:pointer; }
+
+.hero { display:flex; padding:40px; gap:40px; background:#fff; flex-wrap:wrap; }
+.hero-text { max-width:480px; }
+.hero-title { font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:#555; }
+.hero-h1 { font-size:32px; margin:10px 0 15px; }
+.hero-sub { color:#666; margin-bottom:20px; }
+.btn-primary { display:inline-block; padding:12px 22px; border-radius:999px; background:#1f5cff; color:#fff; text-decoration:none; font-weight:600; }
+
+.hero-image img { width:100%; max-width:450px; border-radius:20px; }
+
+.panel { margin:20px 40px; padding:24px; background:#fff; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.06); }
+.panel-title { font-weight:600; margin-bottom:16px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; }
+.field-label { font-size:13px; color:#555; margin-bottom:6px; }
+
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { padding:6px 12px; border-radius:999px; border:1px solid #ccd2e5; font-size:13px; cursor:pointer; }
+
+.variants { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:12px; }
+.card { padding:14px; border-radius:14px; border:1px solid #e0e4f2; background:#fafbff; }
+.card h4 { margin:0 0 8px; font-size:15px; }
+.card p { margin:2px 0; font-size:13px; color:#555; }
+.card a { display:inline-block; margin-top:10px; font-size:13px; color:#1f5cff; text-decoration:none; font-weight:600; }
+
+.textarea { width:100%; min-height:70px; border-radius:12px; border:1px solid #ccd2e5; padding:10px; font-size:13px; }
+.actions { display:flex; gap:10px; margin-top:14px; }
+.btn-secondary { padding:10px 18px; border-radius:999px; border:1px solid #ccd2e5; background:#fff; font-size:13px; cursor:pointer; }
+
+footer { padding:20px 40px; font-size:12px; color:#777; }
+
+/* 📱 Мобільна адаптація */
+@media (max-width: 768px) {
+  header { padding: 16px 20px; }
+  .hero { padding: 20px; flex-direction: column; text-align: center; }
+  .hero-text { max-width: 100%; }
+  .hero-h1 { font-size: 26px; }
+  .hero-image img { max-width: 100%; width: 100%; }
+  .panel { margin: 20px; padding: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .variants { grid-template-columns: 1fr; }
+  .actions { flex-direction: column; }
+  .btn-secondary { width: 100%; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">DOMIUS</div>
+  <div class="lang-switch">
+    <span data-lang="pl">PL</span>
+    <span data-lang="ua">UA</span>
+    <span data-lang="en">EN</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-title" data-i18n="hero_tagline"></div>
+    <h1 class="hero-h1" data-i18n="hero_title"></h1>
+    <p class="hero-sub" data-i18n="hero_sub"></p>
+    <a href="#" class="btn-primary" data-i18n="hero_cta"></a>
+  </div>
+  <div class="hero-image">
+    <img src="https://via.placeholder.com/450x300?text=DOMIUS+House" />
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title" data-i18n="panel_params_title"></div>
+  <div class="grid">
+    <div>
+      <div class="field-label" data-i18n="field_area"></div>
+      <input type="range" min="70" max="250" value="140" />
+    </div>
+
+    <div>
+      <div class="field-label" data-i18n="field_rooms"></div>
+      <div class="chips">
+        <div class="chip">3</div><div class="chip">4</div><div class="chip">5</div><div class="chip">6+</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label" data-i18n="field_bathrooms"></div>
+      <div class="chips">
+        <div class="chip">1</div><div class="chip">2</div><div class="chip">3+</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label" data-i18n="field_garage"></div>
+      <div class="chips">
+        <div class="chip" data-i18n="garage_none"></div>
+        <div class="chip" data-i18n="garage_1"></div>
+        <div class="chip" data-i18n="garage_2"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label" data-i18n="field_style"></div>
+      <div class="chips">
+        <div class="chip" data-i18n="style_modern"></div>
+        <div class="chip" data-i18n="style_classic"></div>
+        <div class="chip" data-i18n="style_minimal"></div>
+        <div class="chip" data-i18n="style_barn"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="field-label" data-i18n="field_extras"></div>
+      <div class="chips">
+        <div class="chip" data-i18n="extras_terrace"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title" data-i18n="panel_ai_title"></div>
+  <div class="variants">
+    <div class="card">
+      <h4>Wariant 1</h4>
+      <p>142,3 m² · 4 pokoje · 2 łazienki · Garaż 2</p>
+      <a href="#" data-i18n="btn_view_project"></a>
+    </div>
+    <div class="card">
+      <h4>Wariant 2</h4>
+      <p>139,8 m² · 4 pokoje · 2 łazienki · Garaż 2</p>
+      <a href="#" data-i18n="btn_view_project"></a>
+    </div>
+    <div class="card">
+      <h4>Wariant 3</h4>
+      <p>145,1 m² · 4 pokoje · 2 łazienki · Garaż 2</p>
+      <a href="#" data-i18n="btn_view_project"></a>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-title" data-i18n="panel_edit_title"></div>
+  <textarea class="textarea" data-i18n-placeholder="edit_placeholder"></textarea>
+  <div class="actions">
+    <button class="btn-secondary" data-i18n="btn_view_3d"></button>
+    <button class="btn-secondary" data-i18n="btn_download"></button>
+  </div>
+</section>
+
+<footer>
+  <span>DOMIUS © 2026</span>
+</footer>
+
+<script>
+const translations = {
+  pl: {
+    hero_tagline: "DOMIUS – Twój dom. Zaprojektowany.",
+    hero_title: "Stwórz swój wymarzony dom z AI",
+    hero_sub: "Opisz czego potrzebujesz, a my wygenerujemy dla Ciebie gotowy projekt.",
+    hero_cta: "Stwórz dom з AI",
+    panel_params_title: "Wybierz parametry domu",
+    field_area: "Powierzchnia użytkowa",
+    field_rooms: "Liczba pokoi",
+    field_bathrooms: "Łazienki",
+    field_garage: "Garaż",
+    field_style: "Styl",
+    field_extras: "Dodatkowe",
+    garage_none: "Brak",
+    garage_1: "1 stanowisko",
+    garage_2: "2 stanowiska",
+    style_modern: "Nowoczesny",
+    style_classic: "Klasyczny",
+    style_minimal: "Minimalistyczny",
+    style_barn: "Stodoła",
+    extras_terrace: "Taras",
+    panel_ai_title: "AI wygenerowało 3 warianty dla Ciebie",
+    btn_view_project: "Zobacz projekt",
+    panel_edit_title: "Dostosuj проект słowami",
+    edit_placeholder: "Napisz czego potrzebujesz np. „powiększ kuchnię” lub „dodaj spiżarnię”",
+    btn_view_3d: "Zobacz w 3D",
+    btn_download: "Pobierz проект"
+  },
+
+  ua: {
+    hero_tagline: "DOMIUS – Твій дім. Спроєктований.",
+    hero_title: "Створи свій омріяний дім за допомогою AI",
+    hero_sub: "Опиши, що тобі потрібно, і ми згенеруємо готовий проєкт.",
+    hero_cta: "Створити дім з AI",
+    panel_params_title: "Обери параметри будинку",
+    field_area: "Площа",
+    field_rooms: "Кількість кімнат",
+    field_bathrooms: "Кількість ванних",
+    field_garage: "Гараж",
+    field_style: "Стиль",
+    field_extras: "Додатково",
+    garage_none: "Без гаража",
+    garage_1: "1 місце",
+    garage_2: "2 місця",
+    style_modern: "Сучасний",
+    style_classic: "Класичний",
+    style_minimal: "Мінімалістичний",
+    style_barn: "Стодола",
+    extras_terrace: "Тераса",
+    panel_ai_title: "AI згенерувало 3 варіанти для вас",
+    btn_view_project: "Переглянути проєкт",
+    panel_edit_title: "Налаштуй проєкт словами",
+    edit_placeholder: "Напиши, що тобі потрібно, наприклад: «збільшити кухню» або «додати комору»",
+    btn_view_3d: "Переглянути в 3D",
+    btn_download: "Завантажити проєкт"
+  },
+
+  en: {
+    hero_tagline: "DOMIUS – Your home. Designed.",
+    hero_title: "Create your dream home with AI",
+    hero_sub: "Describe what you need and we’ll generate a complete project.",
+    hero_cta: "Create home with AI",
+    panel_params_title: "Choose house parameters",
+    field_area: "Usable area",
+    field_rooms: "Number of rooms",
+    field_bathrooms: "Bathrooms",
+    field_garage: "Garage",
+    field_style: "Style",
+    field_extras: "Extras",
+    garage_none: "No garage",
+    garage_1: "1 space",
+    garage_2: "2 spaces",
+    style_modern: "Modern",
+    style_classic: "Classic",
+    style_minimal: "Minimalist",
+    style_barn: "Barn-style",
+    extras_terrace: "Terrace",
+    panel_ai_title: "AI generated 3 variants for you",
+    btn_view_project: "View project",
+    panel_edit_title: "Customize the project with words",
+    edit_placeholder: "Write what you need, e.g. “expand the kitchen” or “add a pantry”",
+    btn_view_3d: "View in 3D",
+    btn_download: "Download project"
+  }
+};
+
+function applyLang(lang) {
+  const dict = translations[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = dict[el.getAttribute("data-i18n")] || "";
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    el.placeholder = dict[el.getAttribute("data-i18n-placeholder")] || "";
+  });
+}
+
+document.querySelectorAll(".lang-switch span").forEach(span => {
+  span.addEventListener("click", () => applyLang(span.dataset.lang));
+});
+
+applyLang("pl");
+</script>
+
+</body>
+</html>
